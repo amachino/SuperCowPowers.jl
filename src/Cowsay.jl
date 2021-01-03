@@ -35,25 +35,25 @@ const COW_TYPES = Dict{String,CowFace}(
     "young" => CowFace("..", "  ")
     )
 
-function cowsay(message::String=""; type::String="default", wrapwidth::Integer=DEFAULT_WRAPWIDTH)
+function cowsay(message::String=""; type::String="default", wrapwidth::Integer=DEFAULT_WRAPWIDTH, wordwrap::Bool=true)
     face = get(COW_TYPES, type, DEFAULT_FACE)
 
-    the_cow = construct_cow(message, balloon=SAY_BALLOON, face=face, wrapwidth=wrapwidth)
+    the_cow = construct_cow(message, balloon=SAY_BALLOON, face=face, wrapwidth=wrapwidth, wordwrap=wordwrap)
 
     print(the_cow)
 end
 
-function cowthink(message::String=""; type::String="default", wrapwidth::Integer=DEFAULT_WRAPWIDTH)
+function cowthink(message::String=""; type::String="default", wrapwidth::Integer=DEFAULT_WRAPWIDTH, wordwrap::Bool=true)
     face = get(COW_TYPES, type, DEFAULT_FACE)
 
-    the_cow = construct_cow(message, balloon=THINK_BALLOON, face=face, wrapwidth=wrapwidth)
+    the_cow = construct_cow(message, balloon=THINK_BALLOON, face=face, wrapwidth=wrapwidth, wordwrap=wordwrap)
 
     print(the_cow)
 end
 
-function construct_cow(message::String; balloon::Balloon=SAY_BALLOON, face::CowFace=DEFAULT_FACE, wrapwidth::Integer=DEFAULT_WRAPWIDTH)::String
+function construct_cow(message::String; balloon::Balloon=SAY_BALLOON, face::CowFace=DEFAULT_FACE, wrapwidth::Integer=DEFAULT_WRAPWIDTH, wordwrap::Bool=true)::String
 
-    wrapped_message = wrap(message, width=wrapwidth)
+    wrapped_message = wordwrap ? wrap(message, width=wrapwidth) : message
     lines = split(wrapped_message, "\n")
     textwidths = map(x->textwidth(x), lines)
     max_line_length = maximum(textwidths, dims=1)[1]
