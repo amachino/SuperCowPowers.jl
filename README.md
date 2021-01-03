@@ -11,6 +11,8 @@
                 ||     ||
 ```
 
+Julia implementation of [cowsay](https://en.wikipedia.org/wiki/Cowsay)🐄
+
 ## Installation
 
 ```
