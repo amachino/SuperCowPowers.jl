@@ -1,5 +1,12 @@
 module SuperCowPowers
 
-# Write your package code here.
+export cowsay, cowthink
+export moo, moomoo, moomoomoo
 
-end
+include("Cowsay.jl")
+using .Cowsay: cowsay, cowthink
+
+include("AptMoo.jl")
+using .AptMoo: moo, moomoo, moomoomoo
+
+end # module
