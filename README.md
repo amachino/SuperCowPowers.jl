@@ -19,9 +19,9 @@ pkg> add https://github.com/amachino/SuperCowPowers.jl
 
 ## Usage
 
-### `cowsay`
-
 ```
+julia> using SuperCowPowers
+
 julia> cowsay("Have you mooed today?")
  _______________________
 < Have you mooed today? >
@@ -32,11 +32,6 @@ julia> cowsay("Have you mooed today?")
                 ||----w |
                 ||     ||
 
-```
-
-### `cowthink`
-
-```
 julia> cowthink("Have you mooed today?")
  _______________________
 ( Have you mooed today? )
