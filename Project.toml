@@ -7,6 +7,7 @@ version = "0.1.0"
 TextWrap = "b718987f-49a8-5099-9789-dcd902bef87d"
 
 [compat]
+TextWrap = "1.0"
 julia = "1"
 
 [extras]
